@@ -10,6 +10,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
+      '/sites': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      }
     },
   }, 
   plugins: [

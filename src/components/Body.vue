@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { parseArticleBody, type ParsedElement } from '../../services/parser'
 
 const props = defineProps<{
     body: string
 }>()
+
+const parsedBody: ParsedElement[] = parseArticleBody(props.body)
+console.log(parsedBody)
 
 </script>
 
