@@ -13,6 +13,7 @@
     "cheerio": "^1.1.2",
     "dompurify": "^3.2.6",
     "htmlparser2": "^10.0.0",
+    "lucide-vue-next": "^0.528.0",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },

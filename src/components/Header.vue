@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AcademicCapIcon } from '@heroicons/vue/24/solid'
-import SearchButton from './SearchButton.vue';
+import SpotlightSearch from './spotlight-search.vue'
 
 </script>
 <template>
@@ -9,6 +9,6 @@ import SearchButton from './SearchButton.vue';
       <AcademicCapIcon class="size-16" />
       <a href="/" class="text-2xl font-bold">Alan's Thoughts</a>
     </div>
-    <SearchButton />
+    <SpotlightSearch />
   </div>
 </template>

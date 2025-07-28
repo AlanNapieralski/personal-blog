@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+import { provide } from 'vue'
+import { useArticleStore } from './composables/useArticleStore'
 
+const store = useArticleStore()
+provide('articleStore', store)
 </script>
 
 <template>
   <div class="bg-background text-primary min-h-screen">
     <div class="font-mono flex flex-col min-h-screen max-w-[800px] mx-auto px-4 space-y-8">
       <Header />
-      <main class="flex-1"> <!-- Add flex-1 to make main content take available space -->
+      <main class="flex-1">
         <RouterView v-slot="{ Component }">
           <Transition name="page" mode="out-in">
             <component :is="Component" />
