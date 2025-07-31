@@ -54,17 +54,17 @@
             No results found for "{{ searchQuery }}"
           </div>
           
-          <div v-else-if="searchQuery" class="py-2">
+          <div v-else-if="searchQuery" class="my-2"
+            >
             <div
               v-for="(result, index) in filteredResults"
               :key="result.id"
-              class="flex items-center px-4 py-3 hover:bg-shadow cursor-pointer transition-colors"
-              :class="{ '': index === selectedIndex }"
+              class="flex items-center px-4 py-3 hover:bg-link cursor-pointer transition-colors group"
+              :class="{ 'bg-link': index === selectedIndex }"
               @click="selectResult(result)"
-              @mouseenter="selectedIndex = index"
             >
               <div class="flex-1">
-                <div class="font-medium text-primary">{{ result.attributes.title }}</div>
+                <div class="font-medium group-hover:text-black" :class="{ 'text-black': index === selectedIndex }">{{ result.attributes.title }}</div>
               </div>
             </div>
           </div>
@@ -105,6 +105,7 @@ const isOpen = ref(false)
 const searchQuery = ref('')
 const selectedIndex = ref(0)
 const searchInput = ref(null)
+const hover = ref(false)
 
 const { articles } = inject('articleStore') as { articles: Ref<ArticleType[]> }
 
