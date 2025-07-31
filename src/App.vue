@@ -13,9 +13,9 @@ provide('articleStore', store)
     <div class="font-mono flex flex-col min-h-screen max-w-[800px] mx-auto px-4 space-y-8">
       <Header />
       <main class="flex-1">
-        <RouterView v-slot="{ Component }">
+        <RouterView v-slot="{ Component, route }">
           <Transition name="page" mode="out-in">
-            <component :is="Component" />
+            <component :is="Component" :key="route.fullPath" />
           </Transition>
         </RouterView>
       </main>

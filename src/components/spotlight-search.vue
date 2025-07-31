@@ -108,21 +108,12 @@ const searchInput = ref(null)
 
 const { articles } = inject('articleStore') as { articles: Ref<ArticleType[]> }
 
-// Sample data
-
 const filteredResults = computed(() => {
   if (!searchQuery.value) return []
   
   return articles.value.filter(result =>
     result.attributes.title.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
-})
-
-const totalItems = computed(() => {
-  if (searchQuery.value) {
-    return filteredResults.value.length
-  }
-  return 0
 })
 
 const openSpotlight = async () => {
