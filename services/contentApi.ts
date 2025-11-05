@@ -53,9 +53,9 @@ function parseMarkdown(content: string, filename: string): Article | null {
 async function loadMarkdownFiles(type: 'articles' | 'pages'): Promise<Article[]> {
     let context;
     if (type === 'articles') {
-        context = import.meta.glob('/content/articles/*.md', { as: 'raw' });
+        context = import.meta.glob('/content/articles/*.md', { query: '?raw', import: 'default' });
     } else {
-        context = import.meta.glob('/content/pages/*.md', { as: 'raw' });
+        context = import.meta.glob('/content/pages/*.md', { query: '?raw', import: 'default' });
     }
     
     const loadedArticles: Article[] = []
