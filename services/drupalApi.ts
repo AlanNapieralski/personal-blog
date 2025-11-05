@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { Article, DrupalArticleObject } from '../src/types/types'
+import type { Article } from '../src/types/types'
 
 // Create shared refs
 const articles = ref<Article[]>([])

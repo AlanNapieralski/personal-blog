@@ -95,7 +95,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick, inject, type Ref } from 'vue'
-import { Search, X, Clock, FileText, Users, Settings, Home, Mail } from 'lucide-vue-next'
+import { Search, X } from 'lucide-vue-next'
 import type { Article as ArticleType } from '../types/types'
 import { useRouter } from 'vue-router'
 
@@ -104,8 +104,7 @@ const router = useRouter()
 const isOpen = ref(false)
 const searchQuery = ref('')
 const selectedIndex = ref(0)
-const searchInput = ref(null)
-const hover = ref(false)
+const searchInput = ref<HTMLInputElement | null>(null)
 
 const { articles } = inject('articleStore') as { articles: Ref<ArticleType[]> }
 
