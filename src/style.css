@@ -7,4 +7,7 @@
     --color-link: #bb9af7;
     --color-highlight: #7296e4;
     --color-shadow: #414868;
+
+    --breakpoint-xsm: 480px;
 }
+

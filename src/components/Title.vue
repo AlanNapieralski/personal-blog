@@ -12,8 +12,12 @@ const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month:
 </script>
 
 <template>
-    <div class="flex flex-col gap-1">
-        <h1 class="text-2xl font-bold">{{ title }}</h1>
-        <span class="text-sm text-gray-500">{{ formattedDate }}, {{ timeToRead }} min read</span>
+    <div class="flex flex-col gap-1 items-center sm:items-start">
+        <h1 class="text-2xl font-bold text-center sm:text-left break-words max-w-full">{{ title }}</h1>
+        <div class="text-sm text-gray-500 flex flex-wrap gap-2 justify-center sm:justify-start">
+            <span>{{ formattedDate }}</span>
+            <span>•</span>
+            <span>{{ timeToRead }} min read</span>
+        </div>
     </div>
 </template>

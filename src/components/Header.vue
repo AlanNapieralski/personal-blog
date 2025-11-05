@@ -4,11 +4,11 @@ import SpotlightSearch from './spotlight-search.vue'
 
 </script>
 <template>
-  <div class="flex justify-between items-center">
-    <div class="flex items-center gap-4">
+  <div class="flex flex-col xsm:flex-row justify-between items-center">
+    <a href="/" class="flex items-center gap-4 !bg-background">
       <AcademicCapIcon class="size-16" />
-      <a href="/" class="text-2xl font-bold">Alan's Thoughts</a>
-    </div>
+      <div class="text-2xl font-bold">Alan's Thoughts</div>
+    </a>
     <SpotlightSearch />
   </div>
 </template>

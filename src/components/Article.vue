@@ -27,8 +27,6 @@ const article = computed(() => {
     )
 })
 
-console.log(article.value?.attributes.body.value)
-
 function calculateReadingTime(text: string): number {
     const noImages = text.replace(/<img[^>]*>/g, '')
     const noHrefs = noImages.replace(/<a[^>]*>(.*?)<\/a>/g, '$1')
