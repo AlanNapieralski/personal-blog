@@ -34,6 +34,6 @@ jobs:
         uses: digitalocean/app_action/deploy@v2
         env:
           SAMPLE_DIGEST: ${{ steps.push.outputs.digest }}
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GHCR_CREDENTIALS: ${{ github.actor }}:${{ secrets.GHCR_TOKEN }}
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
