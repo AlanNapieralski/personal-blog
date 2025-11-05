@@ -9,7 +9,7 @@ services:
       registry_type: GHCR
       registry: ghcr.io
       repository: alannapieralski/personal-blog
-      tag: latest
+      digest: ${SAMPLE_DIGEST}
       registry_credentials: ${GHCR_CREDENTIALS}
     http_port: 80
     instance_count: 1
