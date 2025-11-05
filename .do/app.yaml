@@ -10,6 +10,7 @@ services:
       registry: ghcr.io
       repository: alannapieralski/personal-blog
       tag: latest
+      registry_credentials: ${GHCR_TOKEN}
     http_port: 80
     instance_count: 1
     instance_size_slug: basic-xxs
