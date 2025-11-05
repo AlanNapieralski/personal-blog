@@ -1,5 +1,5 @@
 import { readonly } from 'vue'
-import { getArticles } from '../../services/contentApi'
+import { getArticles } from '~/services/contentApi'
 
 const { articles, loading, error } = getArticles()
 

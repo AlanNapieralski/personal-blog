@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { getPages } from '../../../services/contentApi'
-import Article from '../Article.vue'
-import type { Article as ArticleType } from '../../types/types'
+import { getPages } from '~/services/contentApi'
+import type { Article as ArticleType } from '~/types/types'
 import type { Ref } from 'vue'
-import { computed, inject } from 'vue'
 
 const { pages } = getPages()
 
@@ -19,9 +17,9 @@ const { articles } = inject('articleStore') as { articles: Ref<ArticleType[]> }
         <Article :key="page?.id" :article="page" />
         <ul v-for="article in articles" :key="article.id">
             <li>
-                <RouterLink 
+                <NuxtLink 
                 :to="`/articles/${article.attributes.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`" 
-                class="text-md font-bold">{{ article.attributes.title }}</RouterLink>
+                class="text-md font-bold">{{ article.attributes.title }}</NuxtLink>
             </li>
         </ul>
     </div>
