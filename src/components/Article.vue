@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Title from './Title.vue'
 import Body from './Body.vue'
-import { getArticles } from '../../services/drupalApi'
+import { getArticles } from '../../services/contentApi'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import type { Article as ArticleType } from '../types/types'

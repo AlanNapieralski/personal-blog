@@ -1,22 +1,3 @@
-export interface DrupalArticleObject {
-    data: Article[]
-    links: {
-        self: {
-            href: string
-        }
-    }
-    jsonapi: {
-        version: string
-        meta: {
-            links: {
-                self: {
-                    href: string
-                }
-            }
-        }
-    }
-}
-
 export interface Article {
     attributes: {
         body: {

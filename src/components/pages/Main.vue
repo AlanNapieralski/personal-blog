@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Article from '../Article.vue'
-import { getPages } from '../../../services/drupalApi'
+import { getPages } from '../../../services/contentApi'
 import type { Article as ArticleType } from '../../types/types'
 
 
