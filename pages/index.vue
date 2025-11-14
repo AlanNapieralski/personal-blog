@@ -11,5 +11,12 @@ const home = computed(() => {
 </script>
 
 <template>
-    <Article :key="home?.id" :article="home" />
+    <div class="flex flex-col space-y-6">
+        <Article :key="home?.id" :article="home" />
+        <div>
+            <NuxtLink to="/posts" class="text-blue-600 hover:underline font-semibold">
+                View all posts →
+            </NuxtLink>
+        </div>
+    </div>
 </template>
