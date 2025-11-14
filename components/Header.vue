@@ -5,10 +5,10 @@ import SpotlightSearch from './spotlight-search.vue'
 </script>
 <template>
   <div class="flex flex-col xsm:flex-row justify-between items-center">
-    <a href="/" class="flex items-center gap-4 !bg-background">
+    <NuxtLink to="/" class="flex items-center gap-4 !bg-background">
       <AcademicCapIcon class="size-16" />
       <div class="text-2xl font-bold">Alan's Thoughts</div>
-    </a>
+    </NuxtLink>
     <SpotlightSearch />
   </div>
 </template>
