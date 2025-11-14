@@ -19,14 +19,17 @@ defineProps<{
 h1 {
     font-size: 2rem;
     font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 h2 {
     font-size: 1.5rem;
     font-weight: 600;
+    margin-bottom: 1.25rem;
 }
 h3, h4, h5, h6 {
     font-size: 1.25rem;
     font-weight: 600;
+    margin-bottom: 15rem;
 }
 
 p {
