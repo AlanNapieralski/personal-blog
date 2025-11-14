@@ -11,7 +11,9 @@ provide('articleStore', store)
     <div class="font-mono flex flex-col min-h-screen max-w-[800px] mx-auto px-4 space-y-8">
       <Header />
       <main class="flex-1">
-        <NuxtPage />
+        <Transition name="page" mode="out-in">
+          <NuxtPage />
+        </Transition>
       </main>
       <Footer />
     </div>
