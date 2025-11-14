@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { getPages } from '~/services/contentApi'
 import type { Article as ArticleType } from '~/types/types'
 

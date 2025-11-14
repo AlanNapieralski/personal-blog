@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { marked } from 'marked'
-import type { Article } from '../src/types/types'
+import type { Article } from '~/types/types'
 
 const articles = ref<Article[]>([])
 const articlesLoading = ref(false)
@@ -11,7 +11,7 @@ const pagesLoading = ref(false)
 const pagesError = ref<string | null>(null)
 
 // Parse frontmatter and content from markdown
-function parseMarkdown(content: string, filename: string): Article | null {
+async function parseMarkdown(content: string, filename: string): Promise<Article | null> {
     const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/
     const match = content.match(frontmatterRegex)
     
@@ -30,7 +30,7 @@ function parseMarkdown(content: string, filename: string): Article | null {
     })
     
     // Convert markdown to HTML
-    const html = marked(markdownContent)
+    const html = await marked(markdownContent)
     
     return {
         id: filename.replace('.md', ''),
@@ -63,7 +63,7 @@ async function loadMarkdownFiles(type: 'articles' | 'pages'): Promise<Article[]>
     for (const path in context) {
         const content = await context[path]()
         const filename = path.split('/').pop() || ''
-        const article = parseMarkdown(content, filename)
+        const article = await parseMarkdown(content, filename)
         if (article) {
             loadedArticles.push(article)
         }

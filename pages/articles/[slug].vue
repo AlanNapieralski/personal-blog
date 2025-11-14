@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { getArticles } from '~/services/contentApi'
 import type { Article as ArticleType } from '~/types/types'
 
-const { articles, loading, error } = getArticles()
 const route = useRoute()
+
+const { articles, loading, error } = getArticles()
 const slug = route.params.slug as string
 
 const article = computed(() => {
-    return articles.value?.find((article: ArticleType) => 
+    return articles.value?.find((article: ArticleType) =>
         article.attributes.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === slug
     )
 })
@@ -20,19 +22,17 @@ function calculateReadingTime(text: string): number {
         .replace(/<[^>]*>/g, '')
         .replace(/&nbsp;/g, ' ')
         .replace(/&[a-z]+;/g, ' ')
-    
+
     const words = plainText
         .trim()
         .split(/\s+/)
         .filter(word => word.length > 0)
-    
-    console.log(words)
-    
+
     const minutes = Math.ceil(words.length / 238)
     return Math.max(1, minutes)
 }
 
-const readingTime = computed(() => 
+const readingTime = computed(() =>
     calculateReadingTime(article.value?.attributes.body.value || '')
 )
 </script>
@@ -48,12 +48,8 @@ const readingTime = computed(() =>
         </div>
     </div>
     <div v-else-if="article" class="flex flex-col space-y-6">
-        <Title 
-            :title="article.attributes.title" 
-            :date="article.attributes.created" 
-            :timeToRead="readingTime" 
-        />
-        <Body :body="article.attributes.body.value"/>
+        <Title :title="article.attributes.title" :date="article.attributes.created" :timeToRead="readingTime" />
+        <ArticleBody :body="article.attributes.body.value" />
     </div>
     <div v-else>
         <div class="text-center py-8 text-secondary">

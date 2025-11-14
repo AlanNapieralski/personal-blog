@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Title from './Title.vue'
-import Body from './Body.vue'
-import { getArticles } from '../../services/contentApi'
+import ArticleBody from './ArticleBody.vue'
+import { getArticles } from '../services/contentApi'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import type { Article as ArticleType } from '../types/types'
@@ -69,7 +69,7 @@ const readingTime = computed(() =>
             :date="article.attributes.created" 
             :timeToRead="readingTime" 
         />
-        <Body :body="article.attributes.body.value"/>
+        <ArticleBody :body="article.attributes.body.value"/>
     </div>
     <div v-else>
         <div class="text-center py-8 text-secondary">

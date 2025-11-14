@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { computed } from 'vue'
 
 const props = defineProps<{
     title: string
@@ -7,8 +7,10 @@ const props = defineProps<{
     timeToRead: number
 }>()
 
-const date = new Date(props.date)
-const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+const formattedDate = computed(() => {
+    const dateObj = new Date(props.date)
+    return dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+})
 </script>
 
 <template>
